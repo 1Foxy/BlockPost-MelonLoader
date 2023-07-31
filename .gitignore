@@ -1,0 +1,11 @@
+
+*.vsidx
+*.lock
+.vs/e/v17/.suo
+*.dll
+*.pdb
+*.xml
+*.txt
+*.cache
+*.CopyComplete
+obj/Debug/.NETFramework,Version=v4.8.AssemblyAttributes.cs
