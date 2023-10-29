@@ -15,8 +15,6 @@ namespace e
 {
     internal class entry : MelonMod
     {
-        private static bool isInitialized;
-
         public override void OnApplicationStart()
         {
         }
@@ -29,9 +27,13 @@ namespace e
             }
 
             Features.Aimbot.Aimbot.Loop();
-            Features.Misc.UnlimtedAmmo.Loop();
+
             Features.Misc.NightMode.Loop();
+            Features.Misc.RainbowSky.Loop(); //might change the viusals stuff like nightmode and rainbow sky to Visuals
+            Features.Misc.ChatSpam.Loop();
+
             Features.Visuals.Fov.Loop();
+
 
         }
 
@@ -52,20 +54,6 @@ namespace e
 
         public override void OnApplicationQuit()
         {
-        }
-
-        public static void Initialize()
-        {
-            if (isInitialized)
-            {
-                return;
-            }
-
-          
-
-            isInitialized = true;
-
-            MelonLogger.Msg("Init: " + isInitialized);
         }
     }
 }

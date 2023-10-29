@@ -13,7 +13,6 @@ namespace e.Features.Visuals
     public class ESP
     {
         public static bool NameEsp = false;
-        public static bool WeaponEsp = false;
         public static bool HealthEsp = false;
         public static bool BoxEsp = false;
         public static bool Team = false;
@@ -57,27 +56,25 @@ namespace e.Features.Visuals
                     {
                         float h = vector6.y - vector7.y;
                         float w = h / 2f;
+                        bool flag = data2.team == pl.team;
+
                         Rect rect = new Rect(vector6.x - 20f, (Screen.height - vector6.y) - 15f, 200f, 50f);
                         Rect rect2 = new Rect(vector7.x - 15f, (Screen.height - vector7.y) + 3f, 200f, 50f);
-                        Rect rect3 = new Rect(vector6.x - 20f, (Screen.height - vector6.y) - 0x19f, 200f, 50f);
-                        bool flag = data2.team == pl.team;
+                        Rect rect3 = new Rect(vector6.x - 20f, (Screen.height - vector6.y) - 0x19f, 200f, 50f);                     
                         GUIStyle style = new GUIStyle
                         {
                             normal = { textColor = Color.white },
                             fontSize = 10,
                             fontStyle = FontStyle.Bold
                         };
+
                         if (NameEsp)
                         {
                             GUI.Label(rect, data2.name, style);
                         }
-                        if (WeaponEsp)
-                        {
-                            GUI.Label(rect3, "[weapon]" + data2.currweapon.weaponname, style);
-                        }
                         if (HealthEsp)
                         {
-                            GUI.Label(rect2, "[HP]:" + ((int)data2.health).ToString(), style);
+                            Render.DrawText("[HP]:" + ((int)data2.health).ToString(), rect2, style);
                         }
                         if (BoxEsp)
                         {
@@ -96,17 +93,17 @@ namespace e.Features.Visuals
                         }
                         if (LineEsp)
                         {
-                            if (!Team)
+                            if (flag)
                             {
-                                Render.DrawLine(new Vector2((float)Screen.height, (float)Screen.height), new Vector2(vector7.x, Screen.height - vector7.y), Color.red, 1f);
-                            }
-                            else if (!flag)
-                            {
-                                Render.DrawLine(new Vector2((float)Screen.height, (float)Screen.height), new Vector2(vector7.x, Screen.height - vector7.y), Color.red, 1f);
+                                if (Team)
+                                {
+                                    Render.DrawLine(new Vector2((float)Screen.height, (float)Screen.height), new Vector2(vector7.x, Screen.height - vector7.y), Color.red, 1f);
+
+                                }
                             }
                             else
                             {
-                                Render.DrawLine(new Vector2((float)Screen.height, (float)Screen.height), new Vector2(vector7.x, Screen.height - vector7.y), Color.white, 1f);
+                                Render.DrawLine(new Vector2((float)Screen.height, (float)Screen.height), new Vector2(vector7.x, Screen.height - vector7.y), Color.red, 1f);
                             }
                         }
                     }

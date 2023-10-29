@@ -37,12 +37,14 @@
   <ItemGroup>
     <Compile Include="entry.cs" />
     <Compile Include="Features\Aimbot\Aimbot.cs" />
+    <Compile Include="Features\Misc\ChatSpam.cs" />
     <Compile Include="Features\Misc\NightMode.cs" />
-    <Compile Include="Features\Misc\UnlimtedAmmo.cs" />
+    <Compile Include="Features\Misc\RainbowSky.cs" />
     <Compile Include="Features\Visuals\Esp.cs" />
     <Compile Include="Features\Visuals\Fov.cs" />
     <Compile Include="Gui.cs" />
-    <Compile Include="render.cs" />
+    <Compile Include="Utilities\RenderUtils.cs" />
+    <Compile Include="Utilities\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

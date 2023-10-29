@@ -60,6 +60,8 @@ namespace e
             if (GUI.Button(new Rect(300, 40, 60, 20), (selectedTab == 3) ? "[Info]" : "Info")) { selectedTab = 3; }
             if (GUI.Button(new Rect(370, 40, 60, 20), (selectedTab == 3) ? "[Players]" : "Players")) { selectedTab = 4; }
 
+            GUI.backgroundColor = Color.white;
+
             switch (selectedTab)
             {
                 case -1: HomeTab(); break;
@@ -87,9 +89,6 @@ namespace e
         }
         private static void AimTab()
         {
-
-            //pasted aimbot very buggy :(
-            //too lazy to make this
             Aimbot.enabled = GUI.Toggle(new Rect(10, 75, 200, 20), Aimbot.enabled, "Aimbot");
 
             GUI.Label(new Rect(90, 65, 150, 20), $"FOV ({Aimbot.Fov.ToString()})");
@@ -105,29 +104,24 @@ namespace e
             GUI.Label(new Rect(20, 93, 400, 20), $"Aspect ({Fov.fAspect.ToString()})");
             Fov.fAspect = GUI.HorizontalSlider(new Rect(20, 110, 150, 20), Fov.fAspect, 0.5f, 1.7778f);
 
-            ESP.BoxEsp = GUI.Toggle(new Rect(10, 130, 200, 20), ESP.BoxEsp, "Box");
-            ESP.LineEsp = GUI.Toggle(new Rect(10, 150, 200, 20), ESP.LineEsp, "Line");
-            ESP.Team = GUI.Toggle(new Rect(10, 170, 200, 20), ESP.Team, "Team");
-            ESP.HealthEsp = GUI.Toggle(new Rect(10, 190, 200, 20), ESP.HealthEsp, "Health");
-            ESP.NameEsp = GUI.Toggle(new Rect(10, 210, 200, 20), ESP.NameEsp, "Name");
-            ESP.WeaponEsp = GUI.Toggle(new Rect(10, 230, 200, 20), ESP.WeaponEsp, "Weapon");
-            Features.Misc.NightMode.bNight = GUI.Toggle(new Rect(10, 250, 200, 20), Features.Misc.NightMode.bNight, "NightMode");
+            GUI.Label(new Rect(10, 130, 200, 20), $"-----Visuals-----");
+            ESP.BoxEsp = GUI.Toggle(new Rect(10, 150, 200, 20), ESP.BoxEsp, "Box");
+            ESP.LineEsp = GUI.Toggle(new Rect(10, 170, 200, 20), ESP.LineEsp, "Line");
+            ESP.Team = GUI.Toggle(new Rect(10, 190, 200, 20), ESP.Team, "Team");
+            ESP.HealthEsp = GUI.Toggle(new Rect(10, 210, 200, 20), ESP.HealthEsp, "Health");
+            ESP.NameEsp = GUI.Toggle(new Rect(10, 230, 200, 20), ESP.NameEsp, "Name");
 
+            GUI.Label(new Rect(100, 130, 200, 20), $"-----World-----");
+            Features.Misc.NightMode.bNight = GUI.Toggle(new Rect(100, 150, 200, 20), Features.Misc.NightMode.bNight, "NightMode");
+            Features.Misc.RainbowSky.bRainbow = GUI.Toggle(new Rect(100, 170, 200, 20), Features.Misc.RainbowSky.bRainbow, "Rainbow Sky");
         }
         private static void MiscTab()
         {
-            Features.Misc.UnlimtedAmmo.bUnAmmo = GUI.Toggle(new Rect(10, 65, 200, 20), Features.Misc.UnlimtedAmmo.bUnAmmo, "Unlimted ammo");
-
+            Features.Misc.ChatSpam.bSpam = GUI.Toggle(new Rect(100, 170, 200, 20), Features.Misc.ChatSpam.bSpam, "Chat Spam");
         }
         private static void InfoTab()
         {
-            GUI.Label(new Rect(20, 65, 400, 20), $"Pos: ({Fov.PlayerPos})");
-
-            if (GUI.Button(new Rect(20, 90, 400, 20), "sex"))
-            {
-                PlayerData localPlayer = Controll.pl;
-                PLH.Audio_Fire(localPlayer);
-            }
+            GUI.Label(new Rect(20, 100, 400, 20), $"Pos: ({Fov.PlayerPos})");
 
         }
         private static void PlayerTab(PlayerData ply)

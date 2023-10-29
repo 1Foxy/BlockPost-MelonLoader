@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Player;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,10 +24,7 @@ namespace e.Features.Misc
             {
                 Light light = null;
                 light = cameraObject.GetComponent<Light>();
-                if (bNight)
-                {
-                    light.enabled = false;
-                }
+                if (bNight) { light.enabled = false; }
                 else { light.enabled = true; }
 
             }

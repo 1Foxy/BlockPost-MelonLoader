@@ -13,6 +13,11 @@ namespace e
         public static Texture2D lineTex;
 
         // Methods
+        public static void DrawText(string text, Rect position, GUIStyle style)
+        {
+            GUI.Label(position, text, style);
+        }
+
         public static void DrawBox(float x, float y, float w, float h, Color color, float thickness)
         {
             DrawLine(new Vector2(x, y), new Vector2(x + w, y), color, thickness);
