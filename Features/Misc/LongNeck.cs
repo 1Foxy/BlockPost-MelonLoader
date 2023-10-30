@@ -14,8 +14,8 @@ namespace e.Features.Misc
 
         //tested - Can destroy blocks when in long neck but can't damage or kill? invalids
 
+        public static bool bLongneck = false;
 
-        public static bool longneck = false;
         public static void Loop()
         {
             Longn();
@@ -23,7 +23,7 @@ namespace e.Features.Misc
 
         public static void Longn() {
 
-            if (longneck)
+            if (!bLongneck)
                 return;
 
             GameObject goCam = Controll.goCamera;

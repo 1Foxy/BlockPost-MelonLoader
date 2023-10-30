@@ -120,6 +120,7 @@ namespace e
         private static void MiscTab()
         {
             Features.Misc.ChatSpam.bSpam = GUI.Toggle(new Rect(10, 75, 85, 20), Features.Misc.ChatSpam.bSpam, "Chat Spam");
+            Features.Misc.LongNeck.bLongneck = GUI.Toggle(new Rect(10, 95, 85, 20), Features.Misc.LongNeck.bLongneck, "Long Neck");
         }
         private static void InfoTab()
         {
