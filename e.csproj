@@ -37,6 +37,7 @@
   <ItemGroup>
     <Compile Include="entry.cs" />
     <Compile Include="Features\Aimbot\Aimbot.cs" />
+    <Compile Include="Features\Testing.cs" />
     <Compile Include="Features\Misc\ChatSpam.cs" />
     <Compile Include="Features\Misc\LongNeck.cs" />
     <Compile Include="Features\Misc\NightMode.cs" />

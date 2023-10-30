@@ -119,8 +119,12 @@ namespace e
         }
         private static void MiscTab()
         {
-            Features.Misc.ChatSpam.bSpam = GUI.Toggle(new Rect(10, 75, 85, 20), Features.Misc.ChatSpam.bSpam, "Chat Spam");
-            Features.Misc.LongNeck.bLongneck = GUI.Toggle(new Rect(10, 95, 85, 20), Features.Misc.LongNeck.bLongneck, "Long Neck");
+            GUI.Label(new Rect(10, 80, 200, 20), $"-----Chat Spam-----");
+            Features.Misc.ChatSpam.bSpam = GUI.Toggle(new Rect(10, 100, 100, 20), Features.Misc.ChatSpam.bSpam, "Random Chars");
+            Features.Misc.ChatSpam.bTeamchat = GUI.Toggle(new Rect(10, 120, 100, 20), Features.Misc.ChatSpam.bTeamchat, "Team");
+            Features.Misc.ChatSpam.monke = GUI.Toggle(new Rect(10, 140, 100, 20), Features.Misc.ChatSpam.monke, "Swastik");
+
+            Features.Misc.LongNeck.bLongneck = GUI.Toggle(new Rect(150, 100, 100, 20), Features.Misc.LongNeck.bLongneck, "Long Neck");
         }
         private static void InfoTab()
         {
@@ -131,8 +135,8 @@ namespace e
             GUI.Label(new Rect(10, 130, 200, 20), $"-----Local-----");
             GUI.Label(new Rect(10, 150, 200, 20), $"Name: ({Controll.pl.name})");
             GUI.Label(new Rect(10, 170, 200, 20), $"Pos: ({Controll.currPos.ToString()})");
-            GUI.Label(new Rect(10, 190, 200, 20), $"Rot: ({Controll.pl.currRot})");
-            GUI.Label(new Rect(10, 210, 200, 20), $"Weapon: ({Controll.pl.currweapon})");
+            GUI.Label(new Rect(10, 190, 200, 20), $"Rot: ({e.Utilities.Utils.ConvertRotToString(Controll.pl.currRot)})");
+            GUI.Label(new Rect(10, 210, 200, 20), $"Weapon: ({Controll.pl.currweapon.wi.fullname})");
 
             GUI.Label(new Rect(200, 130, 200, 20), $"-----Network-----");
             if(Controll.ping > Network.MaxPing) {
@@ -149,8 +153,10 @@ namespace e
         {
             GUI.Label(new Rect(20, 70, 500, 20), $"Selected player: {ply.name}");
             GUI.Label(new Rect(20, 90, 500, 20), $"Position: {ply.Pos.ToString()}");
-            GUI.Label(new Rect(20, 105, 500, 20), $"Rotation: {ply.currRot.ToString()}");
-            GUI.Label(new Rect(20, 125, 500, 20), $"Weapon: {ply.currweapon.weaponname.ToString()}");
+            GUI.Label(new Rect(20, 105, 500, 20), $"Rotation: {e.Utilities.Utils.ConvertRotToString(ply.Rot)}");
+
+
+
 
             if (GUI.Button(new Rect(20, 205, 200, 20), "Back"))
             {

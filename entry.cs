@@ -38,6 +38,8 @@ namespace e
 
             Network.Loop();
             LongNeck.Loop();
+
+            Testing.Loop();
         }
 
         public override void OnLevelWasLoaded(int level)

@@ -70,11 +70,35 @@ namespace e.Features.Visuals
 
                         if (NameEsp)
                         {
-                            GUI.Label(rect, data2.name, style);
+                            if (flag)
+                            {
+                                if (Team)
+                                {
+                                    GUI.Label(rect, data2.name, style);
+
+                                }
+                            }
+                            else
+                            {
+                                GUI.Label(rect, data2.name, style);
+                            }
+                            
                         }
                         if (HealthEsp)
                         {
-                            Render.DrawText("[HP]:" + ((int)data2.health).ToString(), rect2, style);
+                            if (flag)
+                            {
+                                if (Team)
+                                {
+                                    Render.DrawText("[HP]:" + ((int)data2.health).ToString(), rect2, style);
+
+                                }
+                            }
+                            else
+                            {
+                                Render.DrawText("[HP]:" + ((int)data2.health).ToString(), rect2, style);
+                            }
+                          
                         }
                         if (BoxEsp)
                         {
@@ -97,7 +121,7 @@ namespace e.Features.Visuals
                             {
                                 if (Team)
                                 {
-                                    Render.DrawLine(new Vector2((float)Screen.height, (float)Screen.height), new Vector2(vector7.x, Screen.height - vector7.y), Color.red, 1f);
+                                    Render.DrawLine(new Vector2((float)Screen.height, (float)Screen.height), new Vector2(vector7.x, Screen.height - vector7.y), Color.green, 1f);
 
                                 }
                             }
@@ -110,14 +134,5 @@ namespace e.Features.Visuals
                 }
             }
         }
-
-
-
-
-        //public void UiScale()
-        //{
-        //    uiManager = GetComponent<UIManager>();
-        //    UIManager.CanvasMenu.scaleFactor = 1;
-        //}
     }
 }
