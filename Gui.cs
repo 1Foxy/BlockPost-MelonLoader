@@ -29,13 +29,18 @@ namespace e
         }
         private static void DisplayHud()
         {
-            GUIStyle guistyle = new GUIStyle();
-            guistyle.fontSize = 15;
-            guistyle.richText = true;
-            guistyle.fontStyle = (FontStyle)6;
-            guistyle.wordWrap = false;
-            guistyle.normal.textColor = Color.white;
-            GUI.Label(new Rect(0f, 0f, 300f, 50f), "<color=#0b03fc>U</color> <color=#84fc03>w</color> <color=#0b03fc>U</color>", guistyle);
+            //future plans:
+            // playerlist
+            // info list
+            // sex
+
+            //GUIStyle guistyle = new GUIStyle();
+            //guistyle.fontSize = 15;
+            //guistyle.richText = true;
+            //guistyle.fontStyle = (FontStyle)6;
+            //guistyle.wordWrap = false;
+            //guistyle.normal.textColor = Color.white;
+            //GUI.Label(new Rect(0f, 0f, 300f, 50f), "<color=#0b03fc>U</color> <color=#84fc03>w</color> <color=#0b03fc>U</color>", guistyle);
         }
         public static void Main()
         {
