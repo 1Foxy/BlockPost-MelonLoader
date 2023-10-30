@@ -11,7 +11,6 @@ namespace e.Features.Visuals
     {
         public static float fFOV = 65;
         public static float fAspect = 1.7778f;
-        public static string PlayerPos;
         public static Camera LocalCamera;
 
         public static void Loop()
@@ -22,7 +21,6 @@ namespace e.Features.Visuals
                 LocalCamera = cameraObject.GetComponent<Camera>();
                 LocalCamera.fieldOfView = fFOV;
                 LocalCamera.aspect = fAspect; //0.7 best gaming mode wide putin
-                PlayerPos = LocalCamera.gameObject.transform.position.ToString();
             }
         }
     }

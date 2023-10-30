@@ -19,6 +19,7 @@ namespace e.Features.Aimbot
         public static extern void mouse_event(Int32 dwFlags, Int32 dx, Int32 dy, Int32 dwData, Int32 dwExtraInfo);
         public static Vector2 vectorToAimAt = Vector2.zero;
         public static Boolean teamCheckEnabled = false;
+        public static Boolean checkForSpawnProtection = true;
         public static bool enabled = false;
         public static float Fov = 1000;
         public static float smooth = 3.5f;
@@ -84,7 +85,8 @@ namespace e.Features.Aimbot
 
                     Int32 playerHealth = player.health;
 
-                    Boolean playerChecking = playerHealth > 10 && !isSpawnProtected && player.name != localPlayer.name;
+                    // Conditionally check for isSpawnProtected
+                    Boolean playerChecking = playerHealth > 10 && (!checkForSpawnProtection || !player.spawnprotect) && player.name != localPlayer.name;
                     Boolean isPlayerOnScreen = worldToScreenPoint.z > 0.00f;
                     Boolean aimbotChecking = playerChecking && isPlayerOnScreen;
 

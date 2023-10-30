@@ -38,8 +38,11 @@
     <Compile Include="entry.cs" />
     <Compile Include="Features\Aimbot\Aimbot.cs" />
     <Compile Include="Features\Misc\ChatSpam.cs" />
+    <Compile Include="Features\Misc\LongNeck.cs" />
     <Compile Include="Features\Misc\NightMode.cs" />
     <Compile Include="Features\Misc\RainbowSky.cs" />
+    <Compile Include="Utilities\Logger.cs" />
+    <Compile Include="Utilities\Network.cs" />
     <Compile Include="Features\Visuals\Esp.cs" />
     <Compile Include="Features\Visuals\Fov.cs" />
     <Compile Include="Gui.cs" />

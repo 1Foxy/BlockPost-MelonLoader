@@ -1,4 +1,5 @@
-﻿using e.Features.Aimbot;
+﻿using e.Features;
+using e.Features.Aimbot;
 using e.Features.Visuals;
 using MelonLoader;
 using Player;
@@ -81,20 +82,16 @@ namespace e
      
         private static void HomeTab()
         {
-
-
-
-
-
         }
         private static void AimTab()
         {
-            Aimbot.enabled = GUI.Toggle(new Rect(10, 75, 200, 20), Aimbot.enabled, "Aimbot");
+            Aimbot.enabled = GUI.Toggle(new Rect(10, 75, 65, 20), Aimbot.enabled, "Aimbot");
 
             GUI.Label(new Rect(90, 65, 150, 20), $"FOV ({Aimbot.Fov.ToString()})");
             Aimbot.Fov = GUI.HorizontalSlider(new Rect(90, 82, 250, 20), Aimbot.Fov, 0, 1000);
 
-            Aimbot.teamCheckEnabled = GUI.Toggle(new Rect(10, 100, 200, 20), Aimbot.teamCheckEnabled, "Team");
+            Aimbot.teamCheckEnabled = GUI.Toggle(new Rect(10, 100, 65, 20), Aimbot.teamCheckEnabled, "Team");
+            Aimbot.checkForSpawnProtection = GUI.Toggle(new Rect(10, 120, 85, 20), Aimbot.checkForSpawnProtection, "SpawnProtect");
         }
         private static void ESPTab()
         {
@@ -105,23 +102,41 @@ namespace e
             Fov.fAspect = GUI.HorizontalSlider(new Rect(20, 110, 150, 20), Fov.fAspect, 0.5f, 1.7778f);
 
             GUI.Label(new Rect(10, 130, 200, 20), $"-----Visuals-----");
-            ESP.BoxEsp = GUI.Toggle(new Rect(10, 150, 200, 20), ESP.BoxEsp, "Box");
-            ESP.LineEsp = GUI.Toggle(new Rect(10, 170, 200, 20), ESP.LineEsp, "Line");
-            ESP.Team = GUI.Toggle(new Rect(10, 190, 200, 20), ESP.Team, "Team");
-            ESP.HealthEsp = GUI.Toggle(new Rect(10, 210, 200, 20), ESP.HealthEsp, "Health");
-            ESP.NameEsp = GUI.Toggle(new Rect(10, 230, 200, 20), ESP.NameEsp, "Name");
+            ESP.BoxEsp = GUI.Toggle(new Rect(10, 150, 65, 20), ESP.BoxEsp, "Box");
+            ESP.LineEsp = GUI.Toggle(new Rect(10, 170, 65, 20), ESP.LineEsp, "Line");
+            ESP.Team = GUI.Toggle(new Rect(10, 190, 65, 20), ESP.Team, "Team");
+            ESP.HealthEsp = GUI.Toggle(new Rect(10, 210, 65, 20), ESP.HealthEsp, "Health");
+            ESP.NameEsp = GUI.Toggle(new Rect(10, 230, 65, 20), ESP.NameEsp, "Name");
 
             GUI.Label(new Rect(100, 130, 200, 20), $"-----World-----");
-            Features.Misc.NightMode.bNight = GUI.Toggle(new Rect(100, 150, 200, 20), Features.Misc.NightMode.bNight, "NightMode");
-            Features.Misc.RainbowSky.bRainbow = GUI.Toggle(new Rect(100, 170, 200, 20), Features.Misc.RainbowSky.bRainbow, "Rainbow Sky");
+            Features.Misc.NightMode.bNight = GUI.Toggle(new Rect(100, 150, 80, 20), Features.Misc.NightMode.bNight, "NightMode");
+            Features.Misc.RainbowSky.bRainbow = GUI.Toggle(new Rect(100, 170, 65, 20), Features.Misc.RainbowSky.bRainbow, "Rainbow Sky");
         }
         private static void MiscTab()
         {
-            Features.Misc.ChatSpam.bSpam = GUI.Toggle(new Rect(100, 170, 200, 20), Features.Misc.ChatSpam.bSpam, "Chat Spam");
+            Features.Misc.ChatSpam.bSpam = GUI.Toggle(new Rect(10, 75, 85, 20), Features.Misc.ChatSpam.bSpam, "Chat Spam");
         }
         private static void InfoTab()
         {
-            GUI.Label(new Rect(20, 100, 400, 20), $"Pos: ({Fov.PlayerPos})");
+            Network.bMaxPing = GUI.Toggle(new Rect(10, 70, 65, 20), Network.bMaxPing, "");
+            GUI.Label(new Rect(35, 70, 400, 20), $"Ping Limit: ({Network.MaxPing})");
+            Network.MaxPing = (uint)GUI.HorizontalSlider(new Rect(10, 90, 200, 20), Network.MaxPing, 5, 1000);
+
+            GUI.Label(new Rect(10, 130, 200, 20), $"-----Local-----");
+            GUI.Label(new Rect(10, 150, 200, 20), $"Name: ({Controll.pl.name})");
+            GUI.Label(new Rect(10, 170, 200, 20), $"Pos: ({Controll.currPos.ToString()})");
+            GUI.Label(new Rect(10, 190, 200, 20), $"Rot: ({Controll.pl.currRot})");
+            GUI.Label(new Rect(10, 210, 200, 20), $"Weapon: ({Controll.pl.currweapon})");
+
+            GUI.Label(new Rect(200, 130, 200, 20), $"-----Network-----");
+            if(Controll.ping > Network.MaxPing) {
+                GUI.Label(new Rect(200, 150, 200, 20), $"Ping: <color=red>({Controll.ping})</color>");
+            } else {
+                GUI.Label(new Rect(200, 150, 200, 20), $"Ping: <color=green>({Controll.ping})</color>");
+            }
+           
+            GUI.Label(new Rect(200, 170, 200, 20), $"Server IP: ({MasterClient.IP})");
+            GUI.Label(new Rect(200, 190, 200, 20), $"Local IP: ({Client.IP})");
 
         }
         private static void PlayerTab(PlayerData ply)

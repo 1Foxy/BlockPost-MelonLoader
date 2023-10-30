@@ -1,4 +1,6 @@
-﻿using e.Features.Visuals;
+﻿using e.Features;
+using e.Features.Misc;
+using e.Features.Visuals;
 using HarmonyLib;
 using MelonLoader;
 using System;
@@ -21,7 +23,7 @@ namespace e
 
         public override void OnUpdate()
         {
-            if (Input.GetKeyDown(KeyCode.Home))
+            if (Input.GetKeyDown(KeyCode.F1)) 
             {
                 Gui.ToggleMenu();
             }
@@ -34,7 +36,8 @@ namespace e
 
             Features.Visuals.Fov.Loop();
 
-
+            Network.Loop();
+            LongNeck.Loop();
         }
 
         public override void OnLevelWasLoaded(int level)
